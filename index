@@ -1,183 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maths Resource Hub</title>
+<!-- Number -->
+<section class="topic-section" data-topic="number">
+    <h2 class="topic-title">Number</h2>
 
-<style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family:Arial, sans-serif;
-    }
-
-    body{
-        background:#f5f7fa;
-        color:#333;
-    }
-
-    header{
-        background:#1e3a8a;
-        color:white;
-        padding:25px;
-        text-align:center;
-    }
-
-    header h1{
-        margin-bottom:10px;
-    }
-
-    .controls{
-        text-align:center;
-        padding:20px;
-    }
-
-    select{
-        padding:10px;
-        font-size:16px;
-        border-radius:8px;
-        border:1px solid #ccc;
-        min-width:250px;
-    }
-
-    .container{
-        width:90%;
-        max-width:1200px;
-        margin:auto;
-    }
-
-    .topic-section{
-        margin:30px 0;
-    }
-
-    .topic-title{
-        background:#2563eb;
-        color:white;
-        padding:12px;
-        border-radius:10px;
-        margin-bottom:15px;
-    }
-
-    .resource-grid{
-        display:grid;
-        grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-        gap:15px;
-    }
-
-    .resource-card{
-        background:white;
-        padding:20px;
-        border-radius:12px;
-        box-shadow:0 3px 8px rgba(0,0,0,0.1);
-        transition:0.3s;
-    }
-
-    .resource-card:hover{
-        transform:translateY(-4px);
-    }
-
-    .resource-card a{
-        text-decoration:none;
-        color:#1e3a8a;
-        font-weight:bold;
-    }
-
-    .hidden{
-        display:none;
-    }
-</style>
-</head>
-
-<body>
-
-<header>
-    <h1>Maths Resource Hub</h1>
-    <p>Select a topic or browse all resources</p>
-</header>
-
-<div class="controls">
-    <select id="topicSelect">
-        <option value="all">All Topics</option>
-        <option value="number">Number</option>
-        <option value="algebra">Algebra</option>
-        <option value="shape">Shape</option>
-        <option value="statistics">Statistics</option>
-    </select>
-</div>
-
-<div class="container">
-
-    <!-- Number -->
-    <section class="topic-section" data-topic="number">
-        <h2 class="topic-title">Number</h2>
-
-        <div class="resource-grid">
-            <div class="resource-card">
-                <a href="improper-fractions.html">
-                    Improper Fractions
-                </a>
-            </div>
+    <div class="resource-grid">
+        <div class="resource-card">
+            <a href="improper-fractions.html">
+                Improper Fractions
+            </a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Algebra -->
-    <section class="topic-section" data-topic="algebra">
-        <h2 class="topic-title">Algebra</h2>
+<!-- Algebra -->
+<section class="topic-section" data-topic="algebra">
+    <h2 class="topic-title">Algebra</h2>
 
-        <div class="resource-grid">
-            <div class="resource-card">
-                <a href="powers.html">
-                    Powers
-                </a>
-            </div>
+    <div class="resource-grid">
+        <div class="resource-card">
+            <a href="powers.html">
+                Powers
+            </a>
         </div>
-    </section>
-
-    <!-- Shape -->
-    <section class="topic-section" data-topic="shape">
-        <h2 class="topic-title">Shape</h2>
-
-        <div class="resource-grid">
-            <div class="resource-card">
-                <p>No resources added yet</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics -->
-    <section class="topic-section" data-topic="statistics">
-        <h2 class="topic-title">Statistics</h2>
-
-        <div class="resource-grid">
-            <div class="resource-card">
-                <p>No resources added yet</p>
-            </div>
-        </div>
-    </section>
-
-</div>
-
-<script>
-const dropdown = document.getElementById("topicSelect");
-const sections = document.querySelectorAll(".topic-section");
-
-dropdown.addEventListener("change", () => {
-    const selected = dropdown.value;
-
-    sections.forEach(section => {
-        if(selected === "all"){
-            section.classList.remove("hidden");
-        } else {
-            section.classList.toggle(
-                "hidden",
-                section.dataset.topic !== selected
-            );
-        }
-    });
-});
-</script>
-
-</body>
-</html>
+    </div>
+</section>
