@@ -1,25 +1,180 @@
-<!-- Number -->
-<section class="topic-section" data-topic="number">
-    <h2 class="topic-title">Number</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maths Resources Hub</title>
 
-    <div class="resource-grid">
-        <div class="resource-card">
-            <a href="improper-fractions.html">
-                Improper Fractions
-            </a>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        background:#f4f7fb;
+        color:#333;
+    }
+
+    header{
+        background:#004080;
+        color:white;
+        text-align:center;
+        padding:40px 20px;
+    }
+
+    header h1{
+        font-size:3rem;
+        margin-bottom:10px;
+    }
+
+    header p{
+        font-size:1.2rem;
+    }
+
+    main{
+        max-width:1200px;
+        margin:auto;
+        padding:40px 20px;
+    }
+
+    .section-title{
+        text-align:center;
+        margin-bottom:30px;
+        color:#004080;
+        font-size:2rem;
+    }
+
+    .grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:20px;
+    }
+
+    .card{
+        background:white;
+        border-radius:15px;
+        padding:30px;
+        text-align:center;
+        box-shadow:0 4px 12px rgba(0,0,0,0.1);
+        transition:0.3s;
+    }
+
+    .card:hover{
+        transform:translateY(-5px);
+        box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .card h2{
+        color:#004080;
+        margin-bottom:15px;
+    }
+
+    .card a{
+        display:inline-block;
+        text-decoration:none;
+        background:#0073e6;
+        color:white;
+        padding:10px 20px;
+        border-radius:8px;
+        transition:0.3s;
+    }
+
+    .card a:hover{
+        background:#005bb5;
+    }
+
+    footer{
+        margin-top:50px;
+        text-align:center;
+        padding:20px;
+        background:#004080;
+        color:white;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Maths Resources Hub</h1>
+    <p>Interactive Maths Topics, Worksheets, Revision and Practice Questions</p>
+</header>
+
+<main>
+
+    <h2 class="section-title">Choose a Topic</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>Number</h2>
+            <a href="number.html">Open</a>
         </div>
-    </div>
-</section>
 
-<!-- Algebra -->
-<section class="topic-section" data-topic="algebra">
-    <h2 class="topic-title">Algebra</h2>
-
-    <div class="resource-grid">
-        <div class="resource-card">
-            <a href="powers.html">
-                Powers
-            </a>
+        <div class="card">
+            <h2>Algebra</h2>
+            <a href="algebra.html">Open</a>
         </div>
+
+        <div class="card">
+            <h2>Shape</h2>
+            <a href="shape.html">Open</a>
+        </div>
+
+        <div class="card">
+            <h2>Statistics</h2>
+            <a href="statistics.html">Open</a>
+        </div>
+
+        <div class="card">
+            <h2>Fractions</h2>
+            <a href="fractions.html">Open</a>
+        </div>
+
+        <div class="card">
+            <h2>Percentages</h2>
+            <a href="percentages.html">Open</a>
+        </div>
+
+        <div class="card">
+            <h2>Ratio</h2>
+            <a href="ratio.html">Open</a>
+        </div>
+
+        <div class="card">
+            <h2>Probability</h2>
+            <a href="probability.html">Open</a>
+        </div>
+
+        <div class="card">
+            <h2>Graphs</h2>
+            <a href="graphs.html">Open</a>
+        </div>
+
+        <div class="card">
+            <h2>Transformations</h2>
+            <a href="transformations.html">Open</a>
+        </div>
+
+        <div class="card">
+            <h2>Pythagoras</h2>
+            <a href="pythagoras.html">Open</a>
+        </div>
+
+        <div class="card">
+            <h2>Trigonometry</h2>
+            <a href="trigonometry.html">Open</a>
+        </div>
+
     </div>
-</section>
+
+</main>
+
+<footer>
+    © 2026 Maths Resources Hub
+</footer>
+
+</body>
+</html>
