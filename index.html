@@ -3,178 +3,342 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maths Resources Hub</title>
+<title>Nat's Maths Resources</title>
 
 <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family:Arial, Helvetica, sans-serif;
-    }
 
-    body{
-        background:#f4f7fb;
-        color:#333;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-    header{
-        background:#004080;
-        color:white;
-        text-align:center;
-        padding:40px 20px;
-    }
+body{
+    background:#f2f5fa;
+    color:#333;
+}
 
-    header h1{
-        font-size:3rem;
-        margin-bottom:10px;
-    }
+header{
+    background:linear-gradient(135deg,#003366,#0066cc);
+    color:white;
+    text-align:center;
+    padding:60px 20px;
+}
 
-    header p{
-        font-size:1.2rem;
-    }
+header h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
 
-    main{
-        max-width:1200px;
-        margin:auto;
-        padding:40px 20px;
-    }
+header p{
+    font-size:1.2rem;
+}
 
-    .section-title{
-        text-align:center;
-        margin-bottom:30px;
-        color:#004080;
-        font-size:2rem;
-    }
+.search-container{
+    max-width:600px;
+    margin:30px auto;
+    text-align:center;
+}
 
-    .grid{
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-        gap:20px;
-    }
+.search-container input{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    font-size:1rem;
+}
 
-    .card{
-        background:white;
-        border-radius:15px;
-        padding:30px;
-        text-align:center;
-        box-shadow:0 4px 12px rgba(0,0,0,0.1);
-        transition:0.3s;
-    }
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:30px;
+}
 
-    .card:hover{
-        transform:translateY(-5px);
-        box-shadow:0 8px 20px rgba(0,0,0,0.15);
-    }
+.section{
+    margin-bottom:50px;
+}
 
-    .card h2{
-        color:#004080;
-        margin-bottom:15px;
-    }
+.section h2{
+    color:#003366;
+    margin-bottom:20px;
+    border-left:8px solid #0066cc;
+    padding-left:15px;
+    font-size:2rem;
+}
 
-    .card a{
-        display:inline-block;
-        text-decoration:none;
-        background:#0073e6;
-        color:white;
-        padding:10px 20px;
-        border-radius:8px;
-        transition:0.3s;
-    }
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
 
-    .card a:hover{
-        background:#005bb5;
-    }
+.card{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
 
-    footer{
-        margin-top:50px;
-        text-align:center;
-        padding:20px;
-        background:#004080;
-        color:white;
-    }
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#003366;
+}
+
+.card p{
+    margin-bottom:20px;
+    color:#666;
+}
+
+.card a{
+    text-decoration:none;
+    background:#0066cc;
+    color:white;
+    padding:10px 18px;
+    border-radius:8px;
+    display:inline-block;
+}
+
+.card a:hover{
+    background:#004d99;
+}
+
+footer{
+    text-align:center;
+    background:#003366;
+    color:white;
+    padding:25px;
+    margin-top:50px;
+}
+
 </style>
 </head>
 <body>
 
 <header>
-    <h1>Maths Resources Hub</h1>
-    <p>Interactive Maths Topics, Worksheets, Revision and Practice Questions</p>
+
+<h1>📚 Nat's Maths Resources</h1>
+
+<p>
+Interactive Maths Lessons, Practice Questions and Revision Resources
+</p>
+
+<div class="search-container">
+<input
+type="text"
+id="searchInput"
+placeholder="Search for a topic..."
+onkeyup="searchTopics()">
+</div>
+
 </header>
 
-<main>
+<div class="container">
 
-    <h2 class="section-title">Choose a Topic</h2>
+<!-- NUMBER -->
 
-    <div class="grid">
+<section class="section">
 
-        <div class="card">
-            <h2>Number</h2>
-            <a href="number.html">Open</a>
-        </div>
+<h2>🔢 Number</h2>
 
-        <div class="card">
-            <h2>Algebra</h2>
-            <a href="algebra.html">Open</a>
-        </div>
+<div class="grid">
 
-        <div class="card">
-            <h2>Shape</h2>
-            <a href="shape.html">Open</a>
-        </div>
+<div class="card">
+<h3>Adding Fractions</h3>
+<p>15 progressively harder fraction addition questions.</p>
+<a href="adding-fractions.html">Open Topic</a>
+</div>
 
-        <div class="card">
-            <h2>Statistics</h2>
-            <a href="statistics.html">Open</a>
-        </div>
+<div class="card">
+<h3>Subtracting Fractions</h3>
+<p>Fraction subtraction practice.</p>
+<a href="#">Coming Soon</a>
+</div>
 
-        <div class="card">
-            <h2>Fractions</h2>
-            <a href="fractions.html">Open</a>
-        </div>
+<div class="card">
+<h3>Multiplying Fractions</h3>
+<p>Practice multiplying fractions.</p>
+<a href="#">Coming Soon</a>
+</div>
 
-        <div class="card">
-            <h2>Percentages</h2>
-            <a href="percentages.html">Open</a>
-        </div>
+<div class="card">
+<h3>Dividing Fractions</h3>
+<p>Learn the reciprocal method.</p>
+<a href="#">Coming Soon</a>
+</div>
 
-        <div class="card">
-            <h2>Ratio</h2>
-            <a href="ratio.html">Open</a>
-        </div>
+<div class="card">
+<h3>Percentages</h3>
+<p>Percentage increase and decrease questions.</p>
+<a href="#">Coming Soon</a>
+</div>
 
-        <div class="card">
-            <h2>Probability</h2>
-            <a href="probability.html">Open</a>
-        </div>
+<div class="card">
+<h3>Ratio</h3>
+<p>Ratio and proportion practice.</p>
+<a href="#">Coming Soon</a>
+</div>
 
-        <div class="card">
-            <h2>Graphs</h2>
-            <a href="graphs.html">Open</a>
-        </div>
+</div>
 
-        <div class="card">
-            <h2>Transformations</h2>
-            <a href="transformations.html">Open</a>
-        </div>
+</section>
 
-        <div class="card">
-            <h2>Pythagoras</h2>
-            <a href="pythagoras.html">Open</a>
-        </div>
+<!-- ALGEBRA -->
 
-        <div class="card">
-            <h2>Trigonometry</h2>
-            <a href="trigonometry.html">Open</a>
-        </div>
+<section class="section">
 
-    </div>
+<h2>📈 Algebra</h2>
 
-</main>
+<div class="grid">
+
+<div class="card">
+<h3>Simplifying Expressions</h3>
+<p>Collecting like terms and algebraic manipulation.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+<div class="card">
+<h3>Expanding Brackets</h3>
+<p>Single and double bracket expansion.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+<div class="card">
+<h3>Factorising</h3>
+<p>Common factors and quadratics.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+<div class="card">
+<h3>Solving Equations</h3>
+<p>One-step to multi-step equations.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- SHAPE -->
+
+<section class="section">
+
+<h2>📐 Shape</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Angles</h3>
+<p>Angle facts and problem solving.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+<div class="card">
+<h3>Area</h3>
+<p>Area of 2D shapes.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+<div class="card">
+<h3>Volume</h3>
+<p>Volume of prisms and cylinders.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+<div class="card">
+<h3>Pythagoras</h3>
+<p>Finding missing lengths in right-angled triangles.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+<div class="card">
+<h3>Trigonometry</h3>
+<p>SOHCAHTOA and problem solving.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- STATISTICS -->
+
+<section class="section">
+
+<h2>📊 Statistics</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Averages</h3>
+<p>Mean, median, mode and range.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+<div class="card">
+<h3>Probability</h3>
+<p>Basic and conditional probability.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+<div class="card">
+<h3>Pie Charts</h3>
+<p>Drawing and interpreting pie charts.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+<div class="card">
+<h3>Scatter Graphs</h3>
+<p>Correlation and lines of best fit.</p>
+<a href="#">Coming Soon</a>
+</div>
+
+</div>
+
+</section>
+
+</div>
 
 <footer>
-    © 2026 Maths Resources Hub
+
+<p>© 2026 Nat's Maths Resources</p>
+
 </footer>
+
+<script>
+
+function searchTopics() {
+
+let input =
+document.getElementById("searchInput")
+.value
+.toLowerCase();
+
+let cards =
+document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+let text =
+card.innerText.toLowerCase();
+
+if(text.includes(input)) {
+card.style.display = "";
+}
+else {
+card.style.display = "none";
+}
+
+});
+
+}
+
+</script>
 
 </body>
 </html>
