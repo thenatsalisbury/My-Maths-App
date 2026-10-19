@@ -49,7 +49,7 @@ button:hover,
     max-width:1200px;
     margin:auto;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(3,1fr);
     gap:20px;
     padding:20px;
 }
@@ -122,9 +122,29 @@ button:hover,
     font-size:1em;
 }
 
-</style>
-</head>
+@media(max-width:900px){
 
+    #allView{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    #allView{
+        grid-template-columns:1fr;
+    }
+
+    .big-question{
+        font-size:3rem;
+    }
+
+}
+
+</style>
+
+</head>
 <body>
 
 <header>
@@ -165,82 +185,33 @@ button:hover,
 
 <script>
 
+function frac(top,bottom){
+    return `
+    <span class="fraction">
+        <span class="top">${top}</span>
+        <span class="bottom">${bottom}</span>
+    </span>`;
+}
+
 const questions = [
 
-{
-q:`<span class="fraction"><span class="top">1</span><span class="bottom">2</span></span> + <span class="fraction"><span class="top">1</span><span class="bottom">4</span></span>`,
-a:`<span class="fraction"><span class="top">3</span><span class="bottom">4</span></span>`
-},
+{ q: `${frac(1,2)} + ${frac(1,4)}`, a: `${frac(3,4)}` },
+{ q: `${frac(1,3)} + ${frac(1,3)}`, a: `${frac(2,3)}` },
+{ q: `${frac(3,4)} + ${frac(1,8)}`, a: `${frac(7,8)}` },
+{ q: `${frac(2,5)} + ${frac(1,5)}`, a: `${frac(3,5)}` },
+{ q: `${frac(2,3)} + ${frac(1,6)}`, a: `${frac(5,6)}` },
 
-{
-q:`<span class="fraction"><span class="top">1</span><span class="bottom">3</span></span> + <span class="fraction"><span class="top">1</span><span class="bottom">3</span></span>`,
-a:`<span class="fraction"><span class="top">2</span><span class="bottom">3</span></span>`
-},
+{ q: `${frac(3,4)} + ${frac(1,3)}`, a: `1 ${frac(1,12)}` },
+{ q: `${frac(5,8)} + ${frac(3,4)}`, a: `1 ${frac(3,8)}` },
+{ q: `${frac(7,8)} + ${frac(2,3)}`, a: `1 ${frac(13,24)}` },
+{ q: `${frac(5,6)} + ${frac(3,4)}`, a: `1 ${frac(7,12)}` },
+{ q: `${frac(7,10)} + ${frac(3,5)}`, a: `1 ${frac(3,10)}` },
 
-{
-q:`<span class="fraction"><span class="top">3</span><span class="bottom">4</span></span> + <span class="fraction"><span class="top">1</span><span class="bottom">8</span></span>`,
-a:`<span class="fraction"><span class="top">7</span><span class="bottom">8</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">2</span><span class="bottom">5</span></span> + <span class="fraction"><span class="top">1</span><span class="bottom">5</span></span>`,
-a:`<span class="fraction"><span class="top">3</span><span class="bottom">5</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">2</span><span class="bottom">3</span></span> + <span class="fraction"><span class="top">1</span><span class="bottom">6</span></span>`,
-a:`<span class="fraction"><span class="top">5</span><span class="bottom">6</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">3</span><span class="bottom">4</span></span> + <span class="fraction"><span class="top">1</span><span class="bottom">3</span></span>`,
-a:`1 <span class="fraction"><span class="top">1</span><span class="bottom">12</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">5</span><span class="bottom">8</span></span> + <span class="fraction"><span class="top">3</span><span class="bottom">4</span></span>`,
-a:`1 <span class="fraction"><span class="top">3</span><span class="bottom">8</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">7</span><span class="bottom">8</span></span> + <span class="fraction"><span class="top">2</span><span class="bottom">3</span></span>`,
-a:`1 <span class="fraction"><span class="top">13</span><span class="bottom">24</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">5</span><span class="bottom">6</span></span> + <span class="fraction"><span class="top">3</span><span class="bottom">4</span></span>`,
-a:`1 <span class="fraction"><span class="top">7</span><span class="bottom">12</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">7</span><span class="bottom">10</span></span> + <span class="fraction"><span class="top">3</span><span class="bottom">5</span></span>`,
-a:`1 <span class="fraction"><span class="top">3</span><span class="bottom">10</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">3</span><span class="bottom">4</span></span> + <span class="fraction"><span class="top">5</span><span class="bottom">6</span></span>`,
-a:`1 <span class="fraction"><span class="top">7</span><span class="bottom">12</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">7</span><span class="bottom">8</span></span> + <span class="fraction"><span class="top">5</span><span class="bottom">6</span></span>`,
-a:`1 <span class="fraction"><span class="top">17</span><span class="bottom">24</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">5</span><span class="bottom">12</span></span> + <span class="fraction"><span class="top">7</span><span class="bottom">18</span></span>`,
-a:`<span class="fraction"><span class="top">29</span><span class="bottom">36</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">7</span><span class="bottom">15</span></span> + <span class="fraction"><span class="top">11</span><span class="bottom">20</span></span>`,
-a:`1 <span class="fraction"><span class="top">1</span><span class="bottom">60</span></span>`
-},
-
-{
-q:`<span class="fraction"><span class="top">17</span><span class="bottom">24</span></span> + <span class="fraction"><span class="top">5</span><span class="bottom">18</span></span>`,
-a:`<span class="fraction"><span class="top">71</span><span class="bottom">72</span></span>`
-}
+{ q: `${frac(3,4)} + ${frac(5,6)}`, a: `1 ${frac(7,12)}` },
+{ q: `${frac(7,8)} + ${frac(5,6)}`, a: `1 ${frac(17,24)}` },
+{ q: `${frac(5,12)} + ${frac(7,18)}`, a: `${frac(29,36)}` },
+{ q: `${frac(7,15)} + ${frac(11,20)}`, a: `1 ${frac(1,60)}` },
+{ q: `${frac(17,24)} + ${frac(5,18)}`, a: `${frac(71,72)}` }
 
 ];
 
@@ -248,27 +219,25 @@ const allView = document.getElementById("allView");
 
 questions.forEach((item,index)=>{
 
-allView.innerHTML += `
+    allView.innerHTML += `
+    <div class="question-card">
 
-<div class="question-card">
+        <h2>Q${index+1}</h2>
 
-<h2>Q${index+1}</h2>
+        <div style="font-size:2rem;margin:20px;">
+            ${item.q}
+        </div>
 
-<div style="font-size:2rem; margin:20px;">
-${item.q}
-</div>
+        <button onclick="this.nextElementSibling.style.display='block'">
+            Reveal Answer
+        </button>
 
-<button onclick="this.nextElementSibling.style.display='block'">
-Reveal Answer
-</button>
+        <div class="answer">
+            ${item.a}
+        </div>
 
-<div class="answer">
-${item.a}
-</div>
-
-</div>
-
-`;
+    </div>
+    `;
 
 });
 
@@ -276,63 +245,64 @@ let current = 0;
 
 function displayQuestion(){
 
-document.getElementById("questionNumber").innerText =
-`Question ${current+1} of 15`;
+    document.getElementById("questionNumber").innerText =
+        `Question ${current + 1} of ${questions.length}`;
 
-document.getElementById("currentQuestion").innerHTML =
-questions[current].q;
+    document.getElementById("currentQuestion").innerHTML =
+        questions[current].q;
 
-document.getElementById("currentAnswer").innerHTML =
-questions[current].a;
+    document.getElementById("currentAnswer").innerHTML =
+        questions[current].a;
 
-document.getElementById("currentAnswer").style.display = "none";
-
+    document.getElementById("currentAnswer").style.display =
+        "none";
 }
 
 function nextQuestion(){
 
-if(current < questions.length-1){
-current++;
-displayQuestion();
-}
+    if(current < questions.length - 1){
+        current++;
+        displayQuestion();
+    }
 
 }
 
 function previousQuestion(){
 
-if(current > 0){
-current--;
-displayQuestion();
-}
+    if(current > 0){
+        current--;
+        displayQuestion();
+    }
 
 }
 
 function toggleSingleAnswer(){
 
-const answer =
-document.getElementById("currentAnswer");
+    const answer =
+        document.getElementById("currentAnswer");
 
-if(answer.style.display === "block"){
-answer.style.display = "none";
-}
-else{
-answer.style.display = "block";
-}
+    if(answer.style.display === "block"){
+        answer.style.display = "none";
+    }
+    else{
+        answer.style.display = "block";
+    }
 
 }
 
 function showAll(){
 
-document.getElementById("allView").style.display = "grid";
-document.getElementById("singleView").style.display = "none";
+    document.getElementById("allView").style.display = "grid";
+    document.getElementById("singleView").style.display = "none";
 
 }
 
 function showSingle(){
 
-document.getElementById("allView").style.display = "none";ngleView").style.display = "flex";
+    document.getElementById("allView").style.display = "none";
+    document.getElementById("singleView").style.display = "flex";
 
-displayQuestion();
+    displayQuestion();
 
 }
 
