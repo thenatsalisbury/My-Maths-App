@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Multiplying Fractions</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f4f6fa;
+}
+
+header{
+    background:#004080;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.controls{
+    text-align:center;
+    padding:20px;
+}
+
+button,
+.home-btn{
+    padding:12px 20px;
+    margin:5px;
+    border:none;
+    border-radius:8px;
+    background:#0073e6;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    text-decoration:none;
+    display:inline-block;
+}
+
+button:hover,
+.home-btn:hover{
+    background:#005bb5;
+}
+
+#allView{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    padding:20px;
+}
+
+.question-card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.answer{
+    display:none;
+    margin-top:15px;
+    color:green;
+    font-weight:bold;
+    font-size:1.5rem;
+}
+
+#singleView{
+    display:none;
+    min-height:70vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.big-question{
+    font-size:5rem;
+    line-height:1.5;
+}
+
+.big-answer{
+    font-size:3rem;
+    color:green;
+    display:none;
+    margin:20px;
+}
+
+.fraction{
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    margin:0 8px;
+}
+
+.fraction .top{
+    display:block;
+    border-bottom:3px solid black;
+    padding:0 12px;
+}
+
+.fraction .bottom{
+    display:block;
+    padding:0 12px;
+}
+
+.big-question .fraction{
+    font-size:1.3em;
+}
+
+.navigation{
+    margin-top:20px;
+}
+
+@media(max-width:900px){
+
+#allView{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+#allView{
+grid-template-columns:1fr;
+}
+
+.big-question{
+font-size:3rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Multiplying Fractions</h1>
+<p>15 Questions Increasing in Difficulty</p>
+</header>
+
+<div class="controls">
+
+<a href="index.html" class="home-btn">🏠 Home</a>
+
+<button onclick="showAll()">All Questions</button>
+
+<button onclick="showSingle()">One Question at a Time</button>
+
+</div>
+
+<div id="allView"></div>
+
+<div id="singleView">
+
+<h2 id="questionNumber"></h2>
+
+<div class="big-question" id="currentQuestion"></div>
+
+<button onclick="toggleSingleAnswer()">
+Reveal Answer
+</button>
+
+<div class="big-answer" id="currentAnswer"></div>
+
+<div class="navigation">
+<button onclick="previousQuestion()">Previous</button>
+<button onclick="nextQuestion()">Next</button>
+</div>
+
+</div>
+
+<script>
+
+function frac(top,bottom){
+return `
+<span class="fraction">
+<span class="top">${top}</span>
+<span class="bottom">${bottom}</span>
+</span>`;
+}
+
+const questions = [
+
+{q:`${frac(1,2)} × ${frac(1,3)}`,a:`${frac(1,6)}`},
+{q:`${frac(1,4)} × ${frac(1,5)}`,a:`${frac(1,20)}`},
+{q:`${frac(2,3)} × ${frac(1,4)}`,a:`${frac(1,6)}`},
+{q:`${frac(3,5)} × ${frac(2,3)}`,a:`${frac(2,5)}`},
+{q:`${frac(4,7)} × ${frac(1,2)}`,a:`${frac(2,7)}`},
+
+{q:`${frac(3,4)} × ${frac(2,5)}`,a:`${frac(3,10)}`},
+{q:`${frac(5,6)} × ${frac(3,7)}`,a:`${frac(5,14)}`},
+{q:`${frac(4,9)} × ${frac(3,8)}`,a:`${frac(1,6)}`},
+{q:`${frac(7,10)} × ${frac(5,6)}`,a:`${frac(7,12)}`},
+{q:`${frac(11,12)} × ${frac(3,4)}`,a:`${frac(11,16)}`},
+
+{q:`${frac(5,8)} × ${frac(12,15)}`,a:`${frac(1,2)}`},
+{q:`${frac(14,21)} × ${frac(9,10)}`,a:`${frac(3,5)}`},
+{q:`${frac(16,25)} × ${frac(15,24)}`,a:`${frac(2,5)}`},
+{q:`${frac(18,35)} × ${frac(14,27)}`,a:`${frac(4,15)}`},
+{q:`${frac(21,44)} × ${frac(22,35)}`,a:`${frac(3,10)}`}
+
+];
+
+const allView=document.getElementById("allView");
+
+questions.forEach((item,index)=>{
+
+allView.innerHTML += `
+<div class="question-card">
+
+<h2>Q${index+1}</h2>
+
+<div style="font-size:2rem;margin:20px">
+${item.q}
+</div>
+
+<button onclick="this.nextElementSibling.style.display='block'">
+Reveal Answer
+</button>
+
+<div class="answer">
+${item.a}
+</div>
+
+</div>
+`;
+
+});
+
+let current=0;
+
+function displayQuestion(){
+
+document.getElementById("questionNumber").innerText=
+`Question ${current+1} of ${questions.length}`;
+
+document.getElementById("currentQuestion").innerHTML=
+questions[current].q;
+
+document.getElementById("currentAnswer").innerHTML=
+questions[current].a;
+
+document.getElementById("currentAnswer").style.display="none";
+
+}
+
+function nextQuestion(){
+
+if(current<questions.length-1){
+current++;
+displayQuestion();
+}
+
+}
+
+function previousQuestion(){
+
+if(current>0){
+current--;
+displayQuestion();
+}
+
+}
+
+function toggleSingleAnswer(){
+
+const answer=document.getElementById("currentAnswer");
+
+if(answer.style.display==="block"){
+answer.style.display="none";
+}
+else{
+answer.style.display="block";
+}
+
+}
+
+function showAll(){
+
+document.getElementById("allView").style.display="grid";
+document.getElementById("singleView").style.display="none";
+
+}
+
+function showSingle(){
+
+document.getElementById("allView").style.display="none";
+document.getElementById("singleView").style.display="flex";
+
+displayQuestion();
+
+}
+
+</script>
+
+</body>
+</html>
